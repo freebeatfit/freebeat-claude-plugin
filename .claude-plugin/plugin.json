@@ -1,6 +1,6 @@
 {
   "name": "freebeat",
-  "displayName": "Freebeat",
+  "displayName": "Freebeat Music Video Generator",
   "version": "0.4.6",
   "description": "Music video generation, dance video generation, and lyric video generation from songs, with optional photos. Also create original music, images, short video clips, singing photos, lip-sync videos, and effects with Freebeat.",
   "author": {
@@ -19,5 +19,8 @@
     "song to video",
     "music generator"
   ],
-  "privacyPolicyUrl": "https://freebeat.ai/privacy-policy"
+  "privacyPolicyUrl": "https://freebeat.ai/privacy-policy",
+  "documentationUrl": "https://freebeat.ai/mcp",
+  "supportUrl": "https://freebeat.ai/contact",
+  "termsOfServiceUrl": "https://freebeat.ai/terms-of-service"
 }
