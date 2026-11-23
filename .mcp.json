@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "freebeat": {
+      "type": "http",
+      "url": "https://freebeat.ai/api/mcp"
+    }
+  }
+}

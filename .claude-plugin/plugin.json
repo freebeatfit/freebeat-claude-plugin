@@ -1,0 +1,23 @@
+{
+  "name": "freebeat",
+  "displayName": "Freebeat",
+  "version": "0.4.6",
+  "description": "Music video generation, dance video generation, and lyric video generation from songs, with optional photos. Also create original music, images, short video clips, singing photos, lip-sync videos, and effects with Freebeat.",
+  "author": {
+    "name": "Freebeat",
+    "email": "support@freebeat.ai",
+    "url": "https://freebeat.ai"
+  },
+  "homepage": "https://freebeat.ai/mcp",
+  "repository": "https://github.com/freebeatfit/freebeat-claude-plugin",
+  "license": "MIT",
+  "keywords": [
+    "freebeat",
+    "music video",
+    "dance video",
+    "lyric video",
+    "song to video",
+    "music generator"
+  ],
+  "privacyPolicyUrl": "https://freebeat.ai/privacy-policy"
+}
