@@ -1,5 +1,5 @@
 ---
-version: 0.4.6
+version: 0.4.7
 name: freebeat-performance-video
 description: |
   Animate a still portrait, pet photo, or two portraits into a short single-shot

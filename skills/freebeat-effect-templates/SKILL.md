@@ -1,5 +1,5 @@
 ---
-version: 0.4.6
+version: 0.4.7
 name: freebeat-effect-templates
 description: |
   Discover Freebeat effect templates and generate template-driven clips through

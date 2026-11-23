@@ -1,5 +1,5 @@
 ---
-version: 0.4.6
+version: 0.4.7
 name: freebeat-music-creation
 description: |
   Generate original music from a text prompt, with optional lyrics, through the

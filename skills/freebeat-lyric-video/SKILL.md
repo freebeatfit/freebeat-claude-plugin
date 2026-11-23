@@ -1,5 +1,5 @@
 ---
-version: 0.4.6
+version: 0.4.7
 name: freebeat-lyric-video
 description: |
   Lyric video generation: turn a song into an animated lyric video with Freebeat.
@@ -19,7 +19,7 @@ For failures or reported outcome details accompanying a pause, read `failure.sta
 
 ## How the agent works
 
-Creation requires `auto_mode`, inferred from the user's intent or discussed when needed: `true` lets the director decide and deliver; `false` pauses where taste matters. Stand where the freebeat.ai user stands: `get_video_session` shows the agent's words, stage statuses, artifacts and media links; `send_video_agent_message` speaks into that same `task_id`, optionally changing auto. `action_required` means waiting for the person, not failure. Decide when to involve the user from their intent. Wait until the agent stops running before sending; acceptance is receipt, so read its reply and check the session before resending an uncertain delivery. Initial credit consent covers continuation without per-message approval; relay any credit notice.
+On creation, use `auto_mode: true` by default, as on freebeat.ai, so the director decides and delivers. Use `auto_mode: false` only when the user explicitly asks to co-create or review the work step by step, so the director pauses where taste matters. Apply this rule without asking the user to choose a mode. Stand where the freebeat.ai user stands: `get_video_session` shows the agent's words, stage statuses, artifacts and media links; `send_video_agent_message` speaks into that same `task_id`, optionally changing auto. `action_required` means waiting for the person, not failure. Decide when to involve the user from their intent. Wait until the agent stops running before sending; acceptance is receipt, so read its reply and check the session before resending an uncertain delivery. Initial credit consent covers continuation without per-message approval; relay any credit notice.
 
 `generate_lyric_video` starts the same lyric-video agent a user gets on freebeat.ai. That agent is the director: it listens to the song, plans the lyric visuals, animates the words in time with the vocals, and edits the video. It treats every word of `prompt` as an instruction, so a shot list, style, or detail you add becomes something it builds. Pass the user's creative direction in the user's own words and nothing more; leave `prompt` empty when the user gave none.
 
@@ -37,7 +37,7 @@ Generated songs can need a bounded preparation wait before video creation. If th
 
 ## Song window and options
 
-- `start_ms`/`end_ms` pick the part of the song the video covers. Default: the first 15 seconds. Standard accounts allow 10-15 seconds, VIP accounts up to 360 seconds; lyric videos need at least 4 seconds. Set them only when the user names a part of the song or a length; if Freebeat rejects the length for this account, say so plainly.
+- `start_ms`/`end_ms` pick the part of the song the video covers. By default, freebeat.ai picks the section the same way it does for a new video on the website. Standard accounts allow 10-15 seconds, VIP accounts up to 360 seconds; lyric videos need at least 4 seconds. Set them only when the user names a part of the song or a length; if Freebeat rejects the length for this account, say so plainly.
 - `aspect_ratio`: `16:9` (default), `9:16`, `1:1`, `4:3`, or `3:4`. Vertical, TikTok, Reels, or Shorts means `9:16`.
 - `resolution`: `768P` (default) or `2K`.
 - `remove_watermark` only when the user asks.

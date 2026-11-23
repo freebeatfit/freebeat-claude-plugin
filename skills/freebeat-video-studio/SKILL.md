@@ -1,5 +1,5 @@
 ---
-version: 0.4.6
+version: 0.4.7
 name: freebeat-video-studio
 description: |
   Create model-based video clips from text, one image, first/last frames, or

@@ -1,7 +1,7 @@
 {
   "name": "freebeat",
   "displayName": "Freebeat Music Video Generator",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "description": "Music video generation, dance video generation, and lyric video generation from songs, with optional photos. Also create original music, images, short video clips, singing photos, lip-sync videos, and effects with Freebeat.",
   "author": {
     "name": "Freebeat",

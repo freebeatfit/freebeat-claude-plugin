@@ -1,5 +1,5 @@
 ---
-version: 0.4.6
+version: 0.4.7
 name: freebeat-generate
 description: |
   Generate or edit images and create model-based video clips with any model

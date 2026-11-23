@@ -1,5 +1,5 @@
 ---
-version: 0.4.6
+version: 0.4.7
 name: freebeat-task-results
 description: |
   Check, wait for, and extract results from existing Freebeat tasks and batches.
@@ -20,7 +20,7 @@ When the `freebeat` MCP server is available, call `get_task_status`. When a task
 
 Agent videos from `generate_music_video`, `generate_dance_video`, or `generate_lyric_video` use scoped IDs starting `music_video:`, `dance:`, or `lyric_video:` and usually take 15-60 minutes; poll every few minutes. These IDs work through the plugin tools, not the CLI.
 
-Creation requires `auto_mode`, inferred from the user's intent or discussed when needed: `true` lets the director decide and deliver; `false` pauses where taste matters. Stand where the freebeat.ai user stands: `get_video_session` shows the agent's words, stage statuses, artifacts and media links; `send_video_agent_message` speaks into that same `task_id`, optionally changing auto. `action_required` means waiting for the person, not failure. Decide when to involve the user from their intent. Wait until the agent stops running before sending; acceptance is receipt, so read its reply and check the session before resending an uncertain delivery. Initial credit consent covers continuation without per-message approval; relay any credit notice.
+On creation, use `auto_mode: true` by default, as on freebeat.ai, so the director decides and delivers. Use `auto_mode: false` only when the user explicitly asks to co-create or review the work step by step, so the director pauses where taste matters. Apply this rule without asking the user to choose a mode. Stand where the freebeat.ai user stands: `get_video_session` shows the agent's words, stage statuses, artifacts and media links; `send_video_agent_message` speaks into that same `task_id`, optionally changing auto. `action_required` means waiting for the person, not failure. Decide when to involve the user from their intent. Wait until the agent stops running before sending; acceptance is receipt, so read its reply and check the session before resending an uncertain delivery. Initial credit consent covers continuation without per-message approval; relay any credit notice.
 
 For failures or reported outcome details accompanying a pause, read `failure.stage`, `failure.reason`, and `failure.retryable` together with `billing.charged`, `billing.refunded`, `billing.net`, and `billing.refund_state`; `get_task_result` exposes the same details. Missing stage, billing, or retry information is `null`, not zero or a promised refund. Explain the safe reason and next step without raw stacks or internal IDs.
 

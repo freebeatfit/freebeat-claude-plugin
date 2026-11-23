@@ -11,10 +11,10 @@ For failures or reported outcome details accompanying a pause, read `failure.sta
 
 | Field | Required | Values |
 |---|---|---|
-| `auto_mode` | yes | Boolean chosen from the user's request: `true` delegates creative decisions; `false` co-creates when the agent pauses. |
+| `auto_mode` | yes | Use `true` by default, as on freebeat.ai, to delegate creative decisions and get the finished video. Use `false` only when the user explicitly asks to co-create or review the work step by step, so the agent pauses for their input. Apply this rule without asking the user to choose a mode. |
 | `music_id` | yes | From `upload_audio`, `musicId` from the CLI audio upload, a completed generated song (`music:<id>`), or the numeric ID returned by `preparing` |
 | `prompt` | no | The user's creative direction in their own words, up to 2000 characters. Empty lets the agent decide. |
-| `start_ms` / `end_ms` | no | Song window in milliseconds. Default `0` to `15000`; `end_ms` must be after `start_ms`. Standard accounts 10-15 s, VIP up to 360 s. |
+| `start_ms` / `end_ms` | no | Song window in milliseconds. By default, freebeat.ai picks the section the same way it does for a new video on the website. Set `start_ms` / `end_ms` to choose a different section. `end_ms` must be after `start_ms`. Standard accounts 10-15 s, VIP up to 360 s. |
 | `aspect_ratio` | no | `16:9` (default), `9:16`, `1:1`, `4:3`, `3:4` |
 | `resolution` | no | `720p` (default) or `1080p`. |
 | `image_urls` | no | Up to 5 photo URLs of people or characters to feature, from `upload_image` (one or two per upload call) |
@@ -22,7 +22,7 @@ For failures or reported outcome details accompanying a pause, read `failure.sta
 
 Once creation starts, the response carries `task_id`, `status`, and an optional viewing link in `session_url`.
 
-Creation requires `auto_mode`, inferred from the user's intent or discussed when needed: `true` lets the director decide and deliver; `false` pauses where taste matters. Stand where the freebeat.ai user stands: `get_video_session` shows the agent's words, stage statuses, artifacts and media links; `send_video_agent_message` speaks into that same `task_id`, optionally changing auto. `action_required` means waiting for the person, not failure. Decide when to involve the user from their intent. Wait until the agent stops running before sending; acceptance is receipt, so read its reply and check the session before resending an uncertain delivery. Initial credit consent covers continuation without per-message approval; relay any credit notice.
+On creation, use `auto_mode: true` by default, as on freebeat.ai, so the director decides and delivers. Use `auto_mode: false` only when the user explicitly asks to co-create or review the work step by step, so the director pauses where taste matters. Apply this rule without asking the user to choose a mode. Stand where the freebeat.ai user stands: `get_video_session` shows the agent's words, stage statuses, artifacts and media links; `send_video_agent_message` speaks into that same `task_id`, optionally changing auto. `action_required` means waiting for the person, not failure. Decide when to involve the user from their intent. Wait until the agent stops running before sending; acceptance is receipt, so read its reply and check the session before resending an uncertain delivery. Initial credit consent covers continuation without per-message approval; relay any credit notice.
 
 Generated songs can need a bounded preparation wait before video creation. If the tool returns `success: true`, `status: preparing`, a numeric `music_id`, and `retry_after_seconds`, no paid task has been created and there is no `task_id` yet. Wait that interval, then call the same generation tool with all parameters and cost authorization unchanged except replacing `music_id` with the returned number. Do not send the original `music:<id>` again or re-upload the song; that would repeat registration. Only announce a started run after a response supplies `task_id` and `session_url`.
 

@@ -1,5 +1,5 @@
 ---
-version: 0.4.6
+version: 0.4.7
 name: freebeat-image-studio
 description: |
   Create still images or edit exactly one image with any image model Freebeat
