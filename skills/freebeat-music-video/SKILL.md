@@ -10,7 +10,6 @@ description: |
   of an existing clip, original music, model-based clips without a song,
   effect-template clips, or checking an existing task.
 argument-hint: "<song attachment or music link> [creative direction] [aspect ratio]"
-allowed-tools: Bash
 ---
 
 # Freebeat Music Video

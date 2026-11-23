@@ -9,7 +9,6 @@ description: |
   lyric video generation, dance instructions without a generated video,
   singing photos, lip-sync performances, original music, or existing tasks.
 argument-hint: "<song attachment or music link> [dancer photos] [creative direction] [aspect ratio]"
-allowed-tools: Bash
 ---
 
 # Freebeat Dance Video

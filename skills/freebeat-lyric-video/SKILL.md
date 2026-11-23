@@ -9,7 +9,6 @@ description: |
   generation, writing or translating lyrics, original music, singing photos,
   lip-sync of an existing clip, or checking an existing task.
 argument-hint: "<song attachment or music link> [creative direction] [aspect ratio]"
-allowed-tools: Bash
 ---
 
 # Freebeat Lyric Video
